@@ -1,0 +1,12 @@
+docker images
+docker build -t jewelwebsite .
+docker images
+docker login 
+docker push khatab24/jewelwebsite:latest
+kubectl create namespace website
+kubectl get namespace
+cd k8s/
+kubectl -n website apply -f deployment.yml
+kubectl -n website apply -f service.yml
+kubectl get pod -n website
+minikube service -n website jewelwebsite --url

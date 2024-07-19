@@ -1,0 +1,22 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: jewelwebsite
+  namespace: website
+  labels:
+    app: jewel
+spec:
+  selector:
+    matchLabels:
+      app: jewelwebsite
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: jewelwebsite
+    spec:
+      containers:
+      - name: jewelwebsite
+        image: khatab24/jewelwebsite:latest
+        ports:
+        - containerPort: 8000
